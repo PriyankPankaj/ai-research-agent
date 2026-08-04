@@ -1,38 +1,68 @@
-\# AI Research Agent
+\# AutoLab AI — Autonomous AI Research \& Engineering Platform
 
 
 
-A multi-agent research assistant that takes a research query, plans a research
+AutoLab AI is a multi-agent system that acts as an AI Research Engineer: given
 
-strategy, retrieves and reads sources via RAG, and produces a cited report.
+a high-level objective, it plans the work, gathers information, verifies
 
+findings, and produces structured reports — combining Agentic AI (planning,
 
+multi-agent collaboration, memory, reflection) with Generative AI (LLMs, RAG,
 
-\## v1 Scope
-
-\- Planner agent: breaks query into sub-tasks
-
-\- Research agent: web/document retrieval via vector search
-
-\- Reader agent: extracts relevant content from retrieved sources
-
-\- Writer agent: drafts the report
-
-\- Critic agent: reviews draft for gaps/citation accuracy
-
-\- Persistent session memory (SQLite)
-
-\- Dockerized deployment
+report generation).
 
 
 
-\## Explicitly out of scope (v1)
+\## v1 Scope (placement portfolio build)
 
-\- Multi-user auth
+\- Planner Agent — decomposes objective into subtasks
 
-\- Streaming UI (CLI/API only)
+\- Research Agent — retrieval via RAG (vector search)
 
-\- Fine-tuned models
+\- Reader Agent — extracts relevant content from sources
+
+\- Artifact Generator (Writer Agent) — drafts cited reports
+
+\- Reflection Agent (Critic) — reviews draft for gaps/accuracy
+
+\- In-memory session state (SQLite persistence added if time allows)
+
+\- FastAPI backend, Dockerized
 
 
+
+\## Roadmap (post-placement — full AutoLab AI vision)
+
+\- Coding Agent — generates and executes code iteratively
+
+\- Benchmark Agent — automates model evaluation (latency, memory, accuracy)
+
+\- Verification Agent — cross-checks facts across multiple sources
+
+\- Memory Manager — persistent semantic memory via SQLite + FAISS
+
+\- Knowledge graph integration (NetworkX)
+
+\- LangGraph-based orchestration (replacing the current custom orchestrator)
+
+\- Artifact types beyond reports: PPT generation, benchmark visualizations
+
+\- Streamlit UI
+
+\- Qwen 3/4 (quantized) as the core LLM, deployable on Colab T4
+
+
+
+\## Tech Stack (v1)
+
+Python · FastAPI · SQLite · Vector DB (Chroma/FAISS) · Docker
+
+
+
+\## Tech Stack (full vision)
+
+Python · LangGraph · Qwen 3/4 (Quantized) · FAISS · BGE-M3 · SQLite + FAISS ·
+
+PyMuPDF · NetworkX · Streamlit
 
