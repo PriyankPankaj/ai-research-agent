@@ -1,6 +1,6 @@
 import chromadb
 from chromadb.utils import embedding_functions
-from datetime import datetime
+from datetime import datetime, timezone
 import uuid
 
 MEMORY_DB_PATH = "chroma_db"
@@ -29,7 +29,7 @@ class MemoryManager:
             metadatas=[{
                 "session_id": session_id,
                 "query": query,
-                "created_at": datetime.utcnow().isoformat(),
+                "created_at": datetime.now(timezone.utc).isoformat(),
             }]
         )
 
