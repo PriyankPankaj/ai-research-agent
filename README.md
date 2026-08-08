@@ -14,6 +14,14 @@ report generation).
 
 
 
+\## Architecture
+
+
+
+!\[AutoLab AI architecture](docs/architecture.svg)
+
+
+
 \## v1 Scope (placement portfolio build)
 
 \- Planner Agent — decomposes objective into subtasks
