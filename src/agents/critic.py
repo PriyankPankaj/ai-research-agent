@@ -10,14 +10,32 @@ class CriticAgent(BaseAgent):
         self.memory = MemoryManager()
 
     def run(self, state: ResearchState) -> ResearchState:
-        state.critique = "Draft reviewed. No major gaps identified."
+        issues = []
+
+        real_sources = [
+            s for s in state.sources
+            if "error" not in s.get("content", "").lower()
+            and "unavailable" not in s.get("content", "").lower()
+        ]
+
+        if len(real_sources) < 2:
+            issues.append("Fewer than 2 reliable sources were found; report may lack depth.")
+
+        if not state.draft_report or len(state.draft_report) < 100:
+            issues.append("Draft report is unusually short.")
+
+        if issues:
+            state.critique = "Issues found: " + "; ".join(issues)
+        else:
+            state.critique = "Draft reviewed. No major gaps identified."
+
         state.is_complete = True
 
-        # Persist this session's finding into long-term memory
-        finding = state.draft_report or " ".join(state.extracted_notes) or ""
+        findings_only = "\n".join(state.extracted_notes) if state.extracted_notes else ""
+        finding = findings_only
         if finding:
             self.memory.store_finding(
-                session_id=state.query,  # simple stand-in until real session_id is threaded through
+                session_id=state.query,
                 query=state.query,
                 content=finding,
             )
