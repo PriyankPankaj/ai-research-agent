@@ -10,3 +10,4 @@ class ResearchState:
     draft_report: Optional[str] = None
     critique: Optional[str] = None
     is_complete: bool = False
+    memory_context: List[dict] = field(default_factory=list)

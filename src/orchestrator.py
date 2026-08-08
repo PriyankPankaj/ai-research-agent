@@ -39,5 +39,5 @@ class Orchestrator:
 
 if __name__ == "__main__":
     orchestrator = Orchestrator()
-    final_state = orchestrator.run("What are the effects of climate change on coral reefs?")
+    final_state = orchestrator.run("How does ocean warming affect coral bleaching?")
     print(final_state)
